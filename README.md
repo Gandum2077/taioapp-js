@@ -16,7 +16,7 @@ TaioApp 的动作绝大多数在 JavaScript 都可以完成，**因此只实现 
 6. 运行 Javascript
 7. 任意功能——可以直接插入 JSON（不过没有检查）
 
-关于为什么目前只实现这 7 个，请参考 [TaioApp 中 JavaScript 无法取代的功能](<#TaioApp\ 中\ JavaScript\ 无法取代的功能>)
+关于为什么目前只实现这 7 个，请参考 [TaioApp 中 JavaScript 无法取代的功能](#taioapp-中-javascript-无法取代的功能)
 
 其他功能以后也许会添加。
 
