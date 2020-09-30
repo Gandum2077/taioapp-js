@@ -1,0 +1,30 @@
+{
+  "name": "taioapp-js",
+  "version": "0.1.0",
+  "description": "",
+  "main": "./index.js",
+  "keywords": [
+    "jsbox",
+    "cview"
+  ],
+  "scripts": {
+    "test": "node ./test.js"
+  },
+  "files": [
+    "index.js",
+    "test.js",
+    "package.json",
+    "package-lock.json"
+  ],
+  "exports": {
+    ".": [
+      {
+        "require": "./index.js",
+        "default": "./index.js"
+      },
+      "./index.js"
+    ]
+  },
+  "author": "gandum2077",
+  "license": "MIT"
+}
