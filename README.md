@@ -24,8 +24,9 @@ TaioApp 的动作绝大多数在 JavaScript 都可以完成，**因此只实现 
 
 ```js
 const {
-  App,
   presetIconColors,
+  App,
+  textWithVariables,
   comment,
   text,
   setVar,
