@@ -1,6 +1,6 @@
 # TaioApp JS
 
-本脚本是为了能够在电脑上直接制作出.taioaction 文件。
+本脚本是为了能够在电脑上直接制作出 `.taioactions` 文件。
 
 TaioApp 的动作绝大多数在 JavaScript 都可以完成，**因此只实现 JavaScript 无法完成或者不够完善的那部分功能。**
 
@@ -42,10 +42,7 @@ const app = new App();
 app.actions = [
   comment("这里填评论"),
   text("这里显示文本"),
-  setVar(
-    "变量名字",
-    textWithVariables("ズ𠮷😊${@input}")
-  ),
+  setVar("变量名字", textWithVariables("ズ𠮷😊${@input}")),
   getVar("变量名字"),
   runjs("js"),
   uitoast("信息"),
@@ -78,7 +75,7 @@ app.icon = "wand.and.stars";
 app.iconColor = presetIconColors[0];
 
 // 最后输出!
-const output = app.output
+const output = app.output;
 console.log(output);
 ```
 
@@ -145,19 +142,19 @@ const icloudEditorPath = icloudPath + "Editor";
 
   最核心的类。
 
-  拥有属性`actions`, `name`, `icon`, `iconColor`, `summary`
+  拥有读写属性`actions`, `name`, `icon`, `iconColor`, `summary`，以及只读属性 `output`，通过前 5 个写入属性，最后一个获取 JSON 文本
 
 - TextWithVariables
 
-  用于将文本和变量组合起来，在 `text`, `setVar`, `getVar`, `uitoast` 中均可用。输入文本的地方可以用这个替代，从而加入变量。
+  用于将文本和变量组合起来，在 `text`, `setVar`, `getVar`, `uitoast` 中均可用。输入文本的地方可以此替代，从而加入变量。
 
-  不过并不直接使用它，而是通过方法 `textWithVariables()` 来创建
+  不过并不直接使用它，而是通过方法 `textWithVariables()` 来创建。
 
 - Component
 
   用于动作列表中的方法均是为了创建此类。
 
-  不直接使用。不过通过继承这个类，可以扩展支持更多的动作。
+  不直接使用。
 
 ### 方法
 
@@ -166,13 +163,12 @@ const icloudEditorPath = icloudPath + "Editor";
   创建 `TextWithVariables` 的实例。
 
   第一种用法例如 `textWithVariables("ズ𠮷😊$", [{ location: 6, value: "@input" }])`。
-  这种用法只会帮你检查错误，然后全部照搬进json。
-  在 value 中用`$`代表变量。另外 location 需要使用 js 内置方法来计算，所以`ズ𠮷😊`的长度为 6，而不是 3。
+  这种用法只会帮你检查错误，然后全部照搬进 json。
+  在 value 中用 `$` 代表变量。另外 location 需要使用 js 内置方法来计算，所以 `ズ𠮷😊` 的长度为 6，而不是 3。
 
   第二种用法例如 `textWithVariables("ズ𠮷😊${@input}")`。
-  这种用法可以自动帮你填写tokens。
-  不过这会带来两个限制，第一不能在使用变量以外的情况中连用`${`这两个字符，第二不能在变量中使用`}`字符。
-
+  这种用法可以自动帮你填写 tokens。
+  不过这会带来两个限制，第一不能在使用变量以外的情况中连用 `${` 这两个字符，第二不能在变量中使用 `}` 字符。
 
 - `comment(text: string): Component `
 
@@ -190,7 +186,7 @@ const icloudEditorPath = icloudPath + "Editor";
 
   获取变量
 
-  fallback 可选0, 1，分别代表返回空白文本、停止运行
+  fallback 可选 0, 1，分别代表返回空白文本、停止运行。默认 0
 
 - `uitoast(title: string | TextWithVariables, style: number, waitUntilDone: boolean): Component`
 

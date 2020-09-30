@@ -17,10 +17,7 @@ const app = new App();
 app.actions = [
   comment("这里填评论"),
   text("这里显示文本"),
-  setVar(
-    "变量名字",
-    textWithVariables("ズ𠮷😊${@input}")
-  ),
+  setVar("变量名字", textWithVariables("ズ𠮷😊${@input}")),
   getVar("变量名字"),
   runjs("js"),
   uitoast("信息"),
@@ -53,5 +50,10 @@ app.icon = "wand.and.stars";
 app.iconColor = presetIconColors[0];
 
 // 最后输出!
-const output = app.output
+const output = app.output;
 console.log(output);
+
+// const fs = require("fs");
+// const { homedir } = require("os");
+// const path = require("path");
+// fs.writeFileSync(path.join(homedir(), "test.taioactions"), output);

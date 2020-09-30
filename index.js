@@ -15,7 +15,6 @@ const presetIconColors = [
 
 class TextWithVariables {
   constructor(value = "", tokens) {
-    console.log(value)
     if (tokens) this._output = { value, tokens };
     
 
